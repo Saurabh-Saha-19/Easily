@@ -1,10 +1,11 @@
-<%if(errorMessage) {%>
+<%if(errorMessage) { %>
 <div class="alert alert-danger" role="alert"><%=errorMessage%></div>
+
 <%}%>
 
 <div id="new-job-container">
-  <form action="/jobs" method="post">
-    <h1 class="mt-4 mb-4">Post a new Job</h1>
+  <form action="/jobs/<%=job.id%>/update" method="post">
+    <h1 class="mt-4 mb-4">Update Job</h1>
     <div class="mb-3">
       <select
         class="form-select"
@@ -44,6 +45,7 @@
         class="form-control"
         id="jobLocation"
         name="jobLocation"
+        value="<%=job.jobLocation%>"
       />
     </div>
 
@@ -57,6 +59,7 @@
         name="companyName"
         id="companyName"
         aria-describedby="companyName-wrapping"
+        value="<%=job.companyName%>"
       />
     </div>
 
@@ -77,6 +80,7 @@
         id="numberOfOpenings"
         placeholder="total no. of openings"
         aria-label="total no. of openings"
+        value="<%=job.numberOfOpenings%>"
       />
     </div>
 
